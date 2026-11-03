@@ -69,12 +69,6 @@
 
         <!-- 右側ボタン群（テスト用スキップ・音声ON/OFF・使い方ボタン） -->
         <div class="flex items-center gap-3">
-            <!-- 先生・デモ用：残り3秒にスキップするボタン -->
-            <button id="demo-skip-btn" class="flex items-center gap-2 bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold py-3 px-4 rounded-2xl shadow-sm border-2 border-purple-300 active:scale-95 transition-all text-base" title="動作確認・デモ用：残り3秒へスキップして演出を確認します">
-                <span>⏩</span>
-                <span>デモ用: 残り3秒へ</span>
-            </button>
-
             <button id="sound-toggle-btn" class="flex items-center gap-2 bg-white hover:bg-slate-100 text-slate-700 font-bold py-3 px-5 rounded-2xl shadow-md border-2 border-slate-200 active:scale-95 transition-all text-lg">
                 <span id="sound-icon">🔊</span>
                 <span id="sound-text">音 ON</span>
@@ -330,8 +324,7 @@
         const todayDateEl = document.getElementById('today-date');
         const footerTip = document.getElementById('footer-tip');
 
-        // 音声・モーダル・デモ系DOM
-        const demoSkipBtn = document.getElementById('demo-skip-btn');
+        // 音声・モーダル系DOM
         const soundToggleBtn = document.getElementById('sound-toggle-btn');
         const soundIcon = document.getElementById('sound-icon');
         const soundText = document.getElementById('sound-text');
@@ -697,14 +690,6 @@
 
         resetTimerBtn.addEventListener('click', () => {
             resetCurrentTimer();
-        });
-
-        // デモ用：残り3秒へ早送りしてスタートするボタン
-        demoSkipBtn.addEventListener('click', () => {
-            playSound('click');
-            pauseTimer();
-            remainingTime = 3; // 残り3秒にセット（プログレスバーの動きと完了演出を両方確認可能）
-            startTimer();
         });
 
         // 音声ON/OFFボタン
